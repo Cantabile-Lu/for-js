@@ -9,6 +9,7 @@ Function.prototype.Call = function(thisArg, ...args){
     thisArg = (thisArg !== undefined && thisArg !== null ) ? Object(thisArg) : globalThis
     thisArg.fn = _t
     const result = thisArg.fn(...args)
+
     // remove excess function
     delete thisArg.fn
     return result
