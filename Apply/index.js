@@ -22,3 +22,7 @@ console.log(result1) // 5
 
 const result2 = sum.apply({}, [2,3])
 console.log(result2) // 5
+
+const numbers = [1,2,3,4,5,6]
+const max = Math.max.Apply(null, numbers);
+console.log(max);
