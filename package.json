@@ -1,12 +1,11 @@
 {
   "name": "for-js",
   "version": "1.0.0",
-  "description": "取于js用于js  一系列js的实现",
+  "description": "A series of js implementations",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky install",
-    "commit": "cz"
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -22,19 +21,12 @@
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
     "commitizen": "^4.2.5",
-    "commitlint-config-cz": "^0.13.3",
     "cz-conventional-changelog": "3.3.0",
-    "cz-customizable": "^7.0.0",
     "husky": "^8.0.0"
   },
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog"
-    }
-  },
-  "husky": {
-    "hooks": {
-      "prepare-commit-msg": "exec < /dev/tty && npx cz --hook || true"
     }
   }
 }
