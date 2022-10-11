@@ -10,7 +10,7 @@
 
 
 
-#### 如何贡献
+#### 一起来玩儿啊
 
 1. Fork代码！
 2. 创建自己的分支： `git checkout -b feat/xxx`
@@ -18,7 +18,7 @@
 4. 推送到您的分支： `git push origin feat/xxx`
 5. 提交： `pull request`
 
-#### git贡献提交规范
+#### git提交规范
 
 - `feat`： 增加新功能
 - `fix`： 修复问题、bug
