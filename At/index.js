@@ -1,17 +1,13 @@
-Array.prototype.At = function (index){
-    /**
-     * save this
-     * [].At(3) -> this = []
-     */
+Array.prototype.At = function (n){
     const _t = this
 
-    index = Math.trunc(index)
+    n = Math.trunc(n) || 0
 
-    if(index < 0) index += _t.length
+    if(n < 0) n += _t.length
 
-    if(index < 0 || index >= _t.length) return undefined
+    if(n < 0 || n > _t.length) return undefined
 
-    return this[index]
+    return this[n]
 }
 
 const numbers = [1,2,3,4,5]
