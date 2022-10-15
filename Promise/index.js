@@ -8,7 +8,7 @@ const STATUS_REJECT = 'rejected'
 function execFuncWithCatchError(executor, value, resolve, reject){
     try{
         const result = executor(value)
-        resolve(value)
+        resolve(result)
     }catch (error){
         reject(error)
     }
@@ -62,6 +62,8 @@ class promise {
             reject(err)
         }
     }
+
+    // method then function
     then(onFulfilled, onRejected){
         onFulfilled = onFulfilled || ((value) => value)
         onRejected = onRejected || ((err) => {throw err})
@@ -87,21 +89,26 @@ class promise {
         })
 
     }
+
+    // Resolve
+    static resolve(value){
+        return new promise(resolve => resolve(value))
+    }
+    // reject
+    static reject(reason){
+        return new promise(reject => reject(reason))
+    }
 }
 
 
 const p1 = new promise((resolve,reject) => {
     // reject('reject来了')
     resolve('resolve来了')
-}).then(res => {
-    console.log(res)
-},err => {
-    console.log(err)
 })
-// console.log(p1, 'p1')
-// const p2 = new Promise((resolve,reject) => {
-//     resolve('resolve来了')
-// }).then(res => {
-//     console.log(res, 'Promise')
-// })
-// console.log(p2, 'p2')
+p1.then(res => {
+    console.log(res)
+    return res + '!!!'
+}).then(res1 => {
+    console.log(res1)
+})
+
