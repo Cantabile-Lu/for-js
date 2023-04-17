@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="#app">
+<!--    <h1>hello word</h1>-->
+<!--    <button>click me</button>-->
+    <button id="btn">开始</button>
+    <button id="interaction">添加交互任务</button>
+</div>
+</body>
+
+<script>
+    /**
+     * @description: 页面卡死案列
+     */
+
+    function delay(time){
+        let now = Date.now()
+        while(Date.now() - now < time){}
+    }
+
+    /**
+     * 案列1
+     * 先执行了定时器,再执行的textContent , 为什么?
+     */
+    // const h1 = document.querySelector('h1')
+    // const btn = document.querySelector('button')
+    // btn.onclick = () => {
+    //     h1.textContent = 'hello js'
+    //     delay(3000)
+    //
+    // }
+
+    /**
+     * @description: 案列2:
+     *
+     */
+
+    function addDelay(){
+        console.log('添加延时队列')
+        setTimeout(() => {
+            console.log('延时队列执行')
+        },100)
+        delay(2000)
+    }
+
+    function addNetWork(){
+        console.log('添加网络队列')
+        fetch('./1.json').then(res => {
+            console.log('网络队列执行')
+        })
+        delay(2000)
+    }
+    const interaction = document.querySelector('#interaction')
+    const btn = document.querySelector('#btn')
+    function addInteraction(){
+        console.log('添加交互队列')
+        interaction.onclick = () => {
+            console.log('交互队列执行')
+        }
+        delay(2000)
+    }
+    btn.onclick = () => {
+        addNetWork()
+
+        addDelay()
+
+        addInteraction()
+        console.log('=====')
+    }
+</script>
+</html>
